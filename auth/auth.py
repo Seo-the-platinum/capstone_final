@@ -6,11 +6,10 @@ from jose import jwt
 from urllib.request import urlopen
 
 
-AUTH0_DOMAIN='auth0practice.us.auth0.com'
-API_AUDIENCE='capstone_api'
-ALGORITHMS=['RS256']
-CLIENT_ID='dVNEueUizdIM1Mr2YFEgWEt7wKghQPKs'
-
+AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
+ALGORITHMS = os.environ['ALGORITHMS']
+API_AUDIENCE = os.environ['API_AUDIENCE']
+CLIENT_ID = os.environ['CLIENT_ID']
 #creates function to let us know when authorization fails
 
 class AuthError(Exception):

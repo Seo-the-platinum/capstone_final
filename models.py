@@ -3,10 +3,9 @@ from sqlalchemy import (Column, String, Integer, create_engine,
 from flask_sqlalchemy import SQLAlchemy
 import json
 import os
-'''
-database_path = 'postgresql://postgres:seoisoe5i73@localhost:5432/capstonedb'
-'''
-database_path = 'postgresql://krwebmmdajeviy:da2f0d787f042a8d73d475fbaeb33aa915100d967f646a232343e558022cfe40@ec2-34-206-8-52.compute-1.amazonaws.com:5432/d3d97kgror5tca'
+
+database_path = os.environ['DATABASE_URL']
+
 db = SQLAlchemy()
 '''
 setup_db(app)
