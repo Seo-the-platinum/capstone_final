@@ -23,7 +23,7 @@ class CapstoneTestCase(unittest.TestCase):
 
         with self.app.app_context():
             #very important, when it was self.db=SQLAlchemy(),
-            #tables were not being generated. Not sure why but as mentor
+            #tables were not being generated. Not sure why but ask mentor
             self.db=db
             self.db.init_app(self.app)
             self.db.create_all()
