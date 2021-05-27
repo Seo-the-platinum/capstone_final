@@ -26,7 +26,7 @@ const Update_Movie = (props)=> {
     }
 
     try {
-      fetch(`http://localhost:5000/movies/${id}`, {
+      fetch(`https://udacap.herokuapp.com/movies/${id}`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${accessToken}`,

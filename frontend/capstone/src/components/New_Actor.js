@@ -52,7 +52,7 @@ const New_Actor = ()=> {
         audience: audience,
       })
 
-      fetch('http://localhost:5000/actors', {
+      fetch('https://udacap.herokuapp.com/actors', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${accessToken}`,

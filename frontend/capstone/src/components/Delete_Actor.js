@@ -14,12 +14,12 @@ const Delete_Actor= (props)=> {
     const accessToken = await getAccessTokenSilently({
       audience: audience,
     })
-    
+
     try {
 
       const { actor }= props.location.state
 
-      fetch(`http://localhost:5000/actors/${actor.id}`, {
+      fetch(`https://udacap.herokuapp.com/actors/${actor.id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${accessToken}`,

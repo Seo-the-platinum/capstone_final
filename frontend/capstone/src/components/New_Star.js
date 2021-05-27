@@ -15,9 +15,9 @@ const New_Star = ()=> {
   const { getAccessTokenSilently } = useAuth0()
 
   useEffect(()=> {
-    const moviesUrl = fetch('http://localhost:5000/movies')
-    const actorsUrl = fetch('http://localhost:5000/actors')
-    const starsUrl = fetch('http://localhost:5000/stars')
+    const moviesUrl = fetch('https://udacap.herokuapp.com/movies')
+    const actorsUrl = fetch('https://udacap.herokuapp.com/actors')
+    const starsUrl = fetch('https://udacap.herokuapp.com/stars')
 
     Promise.all([moviesUrl, actorsUrl, starsUrl])
     .then(values => Promise.all(values.map(value => value.json())))
@@ -94,7 +94,7 @@ const New_Star = ()=> {
         audience: audience
       })
 
-      fetch('http://localhost:5000/stars', {
+      fetch('https://udacap.herokuapp.com/stars', {
         method: 'POST',
         headers: {
           'Authorization':`Bearer ${accessToken}`,

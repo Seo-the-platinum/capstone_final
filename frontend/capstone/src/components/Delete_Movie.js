@@ -16,7 +16,7 @@ const Delete_Movie = (props)=> {
         audience: audience,
       })
       try {
-        fetch(`http://localhost:5000/movies/${movie.id}`, {
+        fetch(`https://udacap.herokuapp.com/movies/${movie.id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${accessToken}`,

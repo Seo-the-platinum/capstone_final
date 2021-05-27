@@ -41,7 +41,7 @@ const New_Movie = ()=> {
         audience: audience,
       })
 
-      fetch('http://localhost:5000/movies', {
+      fetch('https://udacap.herokuapp.com/movies', {
         method: 'POST',
         headers: {
           'Authorization':`Bearer ${accessToken}`,

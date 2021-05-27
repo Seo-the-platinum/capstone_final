@@ -12,7 +12,7 @@ const Home = ()=> {
   })
 
   useEffect(()=> {
-    fetch('http://localhost:5000/stars')
+    fetch('https://udacap.herokuapp.com/stars')
     .then(res=> res.json())
     .then(res => {
       let stars = res.stars

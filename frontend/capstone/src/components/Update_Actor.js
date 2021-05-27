@@ -55,9 +55,8 @@ const Update_Actor= (props)=> {
       gender: gender,
       age: age,
     }
-    console.log('im here!',accessToken)
     try {
-      fetch(`http://localhost:5000/actors/${id}`, {
+      fetch(`https://udacap.herokuapp.com/actors/${id}`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${accessToken}`,
