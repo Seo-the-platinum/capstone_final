@@ -12,9 +12,7 @@ import os
 '''
 database_path = os.environ['DATABASE_URL']
 '''
-database_path = '''postgresql://krwebmmdajeviy:da2f0d787f042a8d73d475fbaeb33aa9
-15100d967f646a232343e558022cfe40
-@ec2-34-206-8-52.compute-1.amazonaws.com:5432/d3d97kgror5tca
+database_path = '''postgresql://krwebmmdajeviy:da2f0d787f042a8d73d475fbaeb33aa915100d967f646a232343e558022cfe40@ec2-34-206-8-52.compute-1.amazonaws.com:5432/d3d97kgror5tca
 '''
 db = SQLAlchemy()
 '''
