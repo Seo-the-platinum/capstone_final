@@ -1,6 +1,24 @@
 import React, { useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 
+const container={
+  display: 'flex',
+  flexDirection: 'column',
+  border: 'solid',
+  borderColor: 'black',
+  borderWidth: 2,
+  borderRadius: 5,
+  padding: 10,
+  marginTop: 5,
+}
+
+const formStyle={
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-around',
+  height: '100%'
+}
+
 const New_Movie = ()=> {
   const [newMovie, setMovie]= useState({
     title: '',
@@ -57,15 +75,17 @@ const New_Movie = ()=> {
   }
 
   return(
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>Title</label>
+    <div style={container}>
+      <form
+        style={formStyle}
+        onSubmit={handleSubmit}>
+        <h2>Title</h2>
         <input
           value={newMovie.title || ''}
           type='text'
           name='title'
           onChange={handleTitle}/>
-          <label>Release Date (mm/dd/yy)</label>
+          <h2>Release Date (mm/dd/yy 00:00:00)</h2>
           <input
             value={newMovie.releaseDate || ''}
             type='text'

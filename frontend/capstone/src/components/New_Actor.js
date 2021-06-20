@@ -1,6 +1,21 @@
 import React, { useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 
+const container={
+  display: 'flex',
+  border: 'solid',
+  borderColor: 'black',
+  borderWidth: 2,
+  borderRadius: 5,
+  padding: 10,
+  marginTop: 5,
+}
+
+const formStyle={
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-around',
+}
 const New_Actor = ()=> {
   const [newActor, setActor]= useState({
     age: 0,
@@ -69,11 +84,12 @@ const New_Actor = ()=> {
 
   }
 
-
   return(
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>name</label>
+    <div style={container}>
+      <form
+        style={formStyle}
+        onSubmit={handleSubmit}>
+        <h2>Name</h2>
         <input
           value={newActor.name || ''}
           type='text'
@@ -85,7 +101,7 @@ const New_Actor = ()=> {
             type='number'
             name='age'
             onChange={handleAge}/>
-          <label>Gender</label>
+          <h2>Gender</h2>
           <select
             id='gender'
             name='gender'

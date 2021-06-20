@@ -2,6 +2,29 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 
+const container={
+  alignItems: 'center',
+  border: 'solid',
+  borderColor: 'black',
+  borderWidth: 2,
+  borderRadius: 5,
+  backgroundColor: 'white',
+  display: 'flex',
+  flexDirection: 'column',
+  marginTop: 10,
+  width: '50%'
+}
+
+const casting={
+  borderBottom: '2px solid black',
+  width: '50%',
+}
+
+const link={
+  textDecoration: 'none',
+  color: 'black'
+}
+
 const Home = ()=> {
 
   const { user, isLoading, getAccessTokenSilently } = useAuth0()
@@ -24,8 +47,9 @@ const Home = ()=> {
   }, [])
 
   if (isLoading) {
-    return <div> Loading...</div>
+    return null
   }
+
   const get_token = async ()=> {
     const audience = process.env.REACT_APP_API_AUDIENCE
     const accessToken = await getAccessTokenSilently({
@@ -36,17 +60,19 @@ const Home = ()=> {
   console.log(get_token())
   const { stars }= data
   return (
-    <div>
+    <div style={container}>
       <h2>
-        {user.name}
+        {`Hello, ${user.name}`}
       </h2>
-      <h2>
+      <h2 style={casting}>
         Casting Sheet
       </h2>
       {stars.map(star=> {
         return (
           <div key={star.id}>
-            <Link to={{
+            <Link
+              style={link}
+              to={{
               pathname:'/delete_movie',
               state: {
                 movie:star.movie,
@@ -56,7 +82,9 @@ const Home = ()=> {
                 { star.movie.title }
               </h2>
             </Link>
-            <Link to={{
+            <Link
+              style={link}
+              to={{
               pathname: '/delete_actor',
               state: {
                 actor: star.actor,

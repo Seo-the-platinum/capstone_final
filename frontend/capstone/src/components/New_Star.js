@@ -1,6 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 
+const container={
+  display: 'flex',
+  border: 'solid',
+  borderColor: 'black',
+  borderRadius: 5,
+  borderWidth: 2,
+  marginTop: 5,
+  padding: 10,
+}
+
+const formStyle={
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-around',
+
+}
 const New_Star = ()=> {
   const [ data, setData] = useState({
     movies: [],
@@ -112,9 +128,11 @@ const New_Star = ()=> {
   const { movies, actors, unavailActors, selectedMovie } = data
   console.log('before render', selectedMovie)
   return(
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label> Movie </label>
+    <div style={container}>
+      <form
+        style={formStyle}
+        onSubmit={handleSubmit}>
+        <h2> Movie </h2>
         <select defaultValue = 'choose here' onChange= {handleMovieSelection}>
           <option value="choose here" disabled hidden>Choose here</option>
           {movies.map((movie)=> {
@@ -125,7 +143,7 @@ const New_Star = ()=> {
             )
           })}
         </select>
-        <label> Actor </label>
+        <h2> Actor </h2>
         <select defaultValue='choose here' onChange={handleActorSelection}>
           <option value="choose here" disabled hidden>Choose here</option>
           {

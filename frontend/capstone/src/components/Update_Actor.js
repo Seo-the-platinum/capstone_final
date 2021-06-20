@@ -2,6 +2,20 @@ import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 
+const container={
+  display: 'flex',
+  border:'solid',
+  borderColor:'black',
+  borderRadius: 5,
+  padding: 10,
+  marginTop: 5,
+}
+
+const formStyle={
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-around',
+}
 
 const Update_Actor= (props)=> {
   const [data, setData]= useState({
@@ -73,17 +87,21 @@ const Update_Actor= (props)=> {
 
   const { age, name }= data
   return (
-    <div>
-      <form onSubmit={sendUpdate}>
+    <div style={container}>
+      <form
+        style={formStyle}
+        onSubmit={sendUpdate}>
+        <h2>Age</h2>
         <input
           onChange={handleAge}
           type='number'
           value={age}/>
+        <h2>Name</h2>
         <input
           onChange={handleName}
           type='text'
           value={name}/>
-        <label> Gender </label>
+        <h2> Gender </h2>
         <select
           id='gender'
           name='gender'

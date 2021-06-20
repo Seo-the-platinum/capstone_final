@@ -2,6 +2,19 @@ import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 
+const container={
+  border: 'solid',
+  borderColor: 'black',
+  borderRadius: 5,
+  padding: 10,
+  marginTop: 5,
+}
+
+const buttonsDiv={
+  display: 'flex',
+  justifyContent: 'space-around'
+}
+
 const Delete_Actor= (props)=> {
 
   const { getAccessTokenSilently } = useAuth0()
@@ -36,25 +49,27 @@ const Delete_Actor= (props)=> {
 
   const { actor }= props.location.state
   return (
-    <div>
+    <div style={container}>
       <h2>
         { actor.name }
       </h2>
-      <button onClick={deleteActor}>
-        <label> Delete </label>
-      </button>
-      <Link to={{
-        pathname: '/update_actor',
-        state: {
-          actor: actor,
-        }
-      }}>
-        <button>
-          <label>
-            Update
-          </label>
+      <div style={buttonsDiv}>
+        <button onClick={deleteActor}>
+          <label> Delete </label>
         </button>
-      </Link>
+        <Link to={{
+          pathname: '/update_actor',
+          state: {
+            actor: actor,
+          }
+        }}>
+          <button>
+            <label>
+              Update
+            </label>
+          </button>
+        </Link>
+      </div>
     </div>
   )
 }
